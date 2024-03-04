@@ -5,15 +5,17 @@ var headers = {
     "user": "mpfv",
 };
 
-$(document).ready(function () {
+function fetchAndUpdateServerList() {
     var url = `${API_ROOT}/list`;
-
+    
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         dataType: "json",
         success: function (data, textStatus, jqXHR) {
+            $("#servers-wrapper").empty();
+
             data.forEach(function (item) {
                 var button = $('<button class="server-button btn btn-dark bg-gray p-3 mx-2 rounded"></button>');
                 button.text(item);
@@ -28,8 +30,15 @@ $(document).ready(function () {
             console.error("Error:", textStatus, errorThrown);
         }
     });
+}
+
+$(document).ready(function () {
+
+    fetchAndUpdateServerList();
+    setInterval(fetchAndUpdateServerList, 5000);
 
 });
+
 
 $(document).ready(function () {
     $('#submit-command-form').submit(function (event) {

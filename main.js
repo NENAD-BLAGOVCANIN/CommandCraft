@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 
-let win; // Use let instead of const for win
+let win;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -14,7 +14,7 @@ function createWindow() {
   win.loadFile('./pages/home.html');
 
   win.on('closed', () => {
-    win = null; // Set win to null instead of redeclaring it with const
+    win = null;
   });
 }
 
