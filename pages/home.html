@@ -23,17 +23,49 @@
         <span>Select your Minecraft server</span>
         <span class="text-secondary">Then simply type your commands</span>
     </div>
-    
 
-    <div class="d-flex justify-content-center align-items-center">
-        <div class="px-2">
-            <button class="btn btn-dark bg-gray p-3 rounded">Example Server Name</button>
+
+    <div class="d-flex justify-content-center align-items-center" id="servers-wrapper">
+
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="enterServerCommandsModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Run Commands</h5>
+                    <span type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <form action="http://31.187.74.246:9999/server" method="POST"
+                        id="submit-command-form">
+                        <div class="d-flex justify-content-center align-items-center pt-4">
+                            <textarea type="text" class="form-control" id="commandsInput" placeholder="ex. say hi" style="max-width: 450px"></textarea>
+                        </div>
+                        <div class="text-center pt-3">
+                            <button class="btn btn-primary">Run</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="px-2">
-            <button class="btn btn-dark bg-gray p-3 rounded">Example Server Name</button>
-        </div>
-        <div class="px-2">
-            <button class="btn btn-dark bg-gray p-3 rounded">Example Server Name</button>
+    </div>
+
+
+
+
+    <div class="alert border-0 py-3 rounded m-auto mt-5" style="max-width: 600px; width: 100%;" id="dynamic-alert">
+        <div class="d-flex">
+            <div class="pr-2">
+                <span class="svg-icon svg-icon-primary svg-icon-2x">
+                    <!-- Your icon or SVG here -->
+                </span>
+            </div>
+            <span>
+                <span id="alert-text"></span>
+            </span>
         </div>
     </div>
 

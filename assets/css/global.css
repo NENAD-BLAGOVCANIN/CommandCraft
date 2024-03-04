@@ -42,7 +42,7 @@ body {
     border-radius: 2rem !important;
 }
 
-.text-secondary{
+.text-secondary {
     color: var(--color-text-secondary) !important;
 }
 
@@ -53,4 +53,22 @@ span {
 a {
     color: var(--color-primary) !important;
     text-decoration: none !important;
+}
+
+.form-control{
+    background-color: #2F323A !important;
+    color: white !important;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #a4a6a8 !important;
+    opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #a4a6a8 !important;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: #a4a6a8 !important;
 }
