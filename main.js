@@ -1,8 +1,9 @@
 const { app, BrowserWindow } = require('electron');
-require('electron-reload')(__dirname);
 
-function createWindow () {
-  const win = new BrowserWindow({
+let win; // Use let instead of const for win
+
+function createWindow() {
+  win = new BrowserWindow({
     width: 900,
     height: 700,
     webPreferences: {
@@ -13,7 +14,7 @@ function createWindow () {
   win.loadFile('./pages/home.html');
 
   win.on('closed', () => {
-    win = null;
+    win = null; // Set win to null instead of redeclaring it with const
   });
 }
 
@@ -25,8 +26,8 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.activate = () => {
+app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-};
+});
